@@ -1,8 +1,11 @@
-# Usa la imagen base de Nginx
+# Usa la imagen base de nginx
 FROM nginx:alpine
 
-# Copia los archivos de tu aplicación web al directorio por defecto de Nginx
-COPY . /usr/share/nginx/html
+# Copia tu aplicación web a la ubicación correcta en nginx
+COPY ./CronometroAPPWeb /usr/share/nginx/html
 
-# Expone el puerto 80 para que la aplicación esté disponible
+# Expone el puerto 80
 EXPOSE 80
+
+# Comando para iniciar nginx
+CMD ["nginx", "-g", "daemon off;"]
