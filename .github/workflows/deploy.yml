@@ -25,8 +25,10 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          push: true
-          tags: sl2705/cronometro_app_web:latest
+         context: .
+         file: ./Dockerfile  # Ruta al Dockerfile
+         push: true
+         tags: sl2705/cronometro_app_web:latest
 
       - name: Deploy to Docker Hub
         run: echo "Image pushed to Docker Hub"
